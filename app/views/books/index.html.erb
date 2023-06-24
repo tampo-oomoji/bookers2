@@ -1,2 +1,17 @@
-<h1>Books#index</h1>
-<p>Find me in app/views/books/index.html.erb</p>
+<h1>Books</h1>
+<% @books.each do |book| %>
+
+<div>
+  <p>title</p>
+  <%= book.title %>
+  <p>body</p>
+  <%= book.body %>
+  <%= link_to "show", book_path(book.id) %>
+</div>
+
+<% end %>
+
+<%= render "users/users_info", user: current_user %>
+<%= render "books/new", book: @book %>
+
+<%= render 'homes/footer' %>

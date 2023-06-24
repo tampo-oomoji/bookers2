@@ -1,0 +1,11 @@
+
+<!--<p>%= @user.name %></p>-->
+
+<!--<p>%= @user.introduction %></p>-->
+
+<%= render "users_info", user: current_user %>
+
+  <!--%= image_tag @user.get_profile_image(100,100) %>-->
+  <%= image_tag @user.get_profile_image(100,100) %>
+  <p>name：<%= @user.name %></p>
+  <p>introduction：<%= @user.introduction %></p>
