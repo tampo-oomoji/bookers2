@@ -1,6 +1,8 @@
 <h1>welcome to bookers</h1>
 
 <!--%= render "users/users_info", user: current_user %>-->
+
+<%= render 'users_info', user: current_user %>
 <%= render "books/new", book: @book %>
 
 <%= render 'homes/footer' %>

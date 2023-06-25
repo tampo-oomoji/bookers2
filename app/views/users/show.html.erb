@@ -3,9 +3,24 @@
 
 <!--<p>%= @user.introduction %></p>-->
 
-<%= render "users_info", user: current_user %>
+
+
 
   <!--%= image_tag @user.get_profile_image(100,100) %>-->
-  <%= image_tag @user.get_profile_image(100,100) %>
-  <p>name：<%= @user.name %></p>
-  <p>introduction：<%= @user.introduction %></p>
+  <% @books.each do |book| %>
+  <div>
+    <%= link_to book_path(book.id) do %>
+    <%= image_tag book.get_image %>
+    <% end %>
+    <p>Title : <%= book.title %></p>
+    <p>Option : <%= book.body %></p>
+  </div>
+  <% end %>
+  
+  
+  
+<%= render "users_info", user: current_user %>
+
+<%= render "books/new", book: @book %>
+
+<%= render 'homes/footer' %>

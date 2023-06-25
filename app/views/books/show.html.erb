@@ -2,7 +2,16 @@
   <%= image_tag @book.get_image %>
   <p>title : <%= @book.title %></p>
   <p>Option : <%= @book.body %></p>
-  <!--%= link_to @book.user.name, user_path(user.id) %>-->
+
+ <!--%= link_to @book.user.name, "user_path(@book.user.id))" %>-->
+ <%= link_to(@book.user) do %>
+
+            <%= @book.user.name %>
+            <% end %>
 </div>
+
+<%= render 'users/users_info', user: current_user %>
+<%= render "books/new", book: @book %>
+
 
 <%= render 'homes/footer' %>
