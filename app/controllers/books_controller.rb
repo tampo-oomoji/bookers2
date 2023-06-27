@@ -3,18 +3,19 @@ class BooksController < ApplicationController
     @book = Book.new
   end
 def edit
-  user = User.find(params[:id])
-  
-  unless user.id == current_user.id
+  @book = Book.find(params[:id])
+
+
+  unless @book.user.id == current_user.id
     redirect_to books_path
   end
-  @book = Book.find(params[:id])
+
 end
 
   def index
-    
+
     @books = Book.all
-    
+
     @book = Book.new
 
   end
@@ -31,14 +32,14 @@ end
    end
   end
 
-    def update
-        user = User.find(params[:id])
-       
-  unless user.id == current_user.id
+ def update
+  @book = Book.find(params[:id])
+
+  unless @book.user.id == current_user.id
     redirect_to books_path
   end
-      
-       @book = Book.find(params[:id])
+
+
     if @book.update(book_params)
 
       flash[:notice] = "successfully"
@@ -52,7 +53,7 @@ end
     @book = Book.find(params[:id])
     @newbook = Book.new
     @user = @book.user
-  
+
 
 
   end
