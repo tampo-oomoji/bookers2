@@ -2,12 +2,19 @@
 
 <h1>user info</h1>
 
-<div>
+
   <!--%= image_tag @user.get_profile_image(100,100) %>-->
   <%= image_tag user.get_profile_image(100,100) %>
   <p>name：<%= user.name %></p>
   <p>introduction：<%= user.introduction %></p>
-  <%= link_to "プロフィール編集", edit_user_path(current_user) %>
   
-</div>
+  
+  <%= link_to edit_user_path(user.id), class:"btn btn-outline-secondary btn-block " do %>
+    <i class="fas fa-user-cog"></i>
+  
+  
+  <% end %>
+  <!--%= link_to "プロフィール編集", edit_user_path(current_user) %>-->
+
+
 

@@ -1,17 +1,45 @@
-<h1>Books</h1>
-<% @books.each do |book| %>
+<div class="container">
+<div class="row">
+<div class="col-md-3">
+  <%= render "users/users_info", user: current_user %>
+  <%= render "books/new", book: @book %>
+</div>
+  <div class="col-md-8 offset-md-1">
 
-<div>
-  <p>title</p>
-  <%= book.title %>
-  <p>body</p>
-  <%= book.body %>
-  <%= link_to "show", book_path(book.id) %>
+    <h1>Books</h1>
+
+
+
+    <% if @book.errors.any? %>
+    <%= @book.errors.count %>件のerrorが発生しました
+    <ul>
+      <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+    <% end %>
+
+
+
+    <% @books.each do |book| %>
+    <%= link_to user_path(book.user.id) do %>
+    <%= image_tag book.user.get_profile_image(100,100) %>
+    <% end %>
+
+
+      <p>title</p>
+      <%= link_to book.title, book_path(book.id) %>
+      <p>body</p>
+      <%= book.body %>
+      <%= link_to "Show", book_path(book.id) %>
+
+
+    <% end %>
+  </div>
+
+
+
+
+</div>
 </div>
 
-<% end %>
-
-<%= render "users/users_info", user: current_user %>
-<%= render "books/new", book: @book %>
-
-<%= render 'homes/footer' %>

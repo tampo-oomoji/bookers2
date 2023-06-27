@@ -1,6 +1,18 @@
-<h1>welcome to bookers</h1>
+<h1>welcome to <i class="fa-solid fa-book"></i> bookers</h1>
 
 <!--%= render "users/users_info", user: current_user %>-->
-<%= render "books/new", book: @book %>
+<%= flash[:notice] %>
+ <main class="mb-auto">
+       <div class="btn-wrapper col-10 mx-auto">
+         <div class="row">
+           <a class="btn btn-info btn-sm btn-block mb-3 sign_in"href="/users/sign_in">Log in</a>
+         </div>
+       </div>
+       
+       <div class="row">
+         <a class="btn btn-success btn-sm btn-block sign_up"href="/users/sign_up">Sign up</a>
+  
+       </div>
+       </main>
+       
 
-<%= render 'homes/footer' %>

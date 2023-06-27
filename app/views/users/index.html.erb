@@ -1,3 +1,12 @@
+
+<div class="container">
+<div class="row">
+<div class="col-md-3">
+  <%= render 'users/users_info', user: current_user %>
+  <%= render 'books/new', book: @book %>
+</div>
+  <div class="col-md-8 offset-md-1">
+
 <h1>User</h1>
 
 <% @users.each do |user| %>
@@ -15,4 +24,6 @@
 
 <% end %>
 
-<%= render 'users_info', user: current_user %>
+</div>
+</div>
+</div>
