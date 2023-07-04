@@ -1,6 +1,7 @@
 class Book < ApplicationRecord
   
   belongs_to :user
+  has_many :favorites, dependent: :destroy
   has_one_attached :image
   
   validates :title, presence:true
@@ -13,6 +14,10 @@ class Book < ApplicationRecord
     end
     image
    
+  end
+  
+  def favorited_by?(user)
+    favorites.exists?(user_id: user.id)
   end
   
 end
